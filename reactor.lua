@@ -116,15 +116,15 @@ function reactorControl()
 	for k, v in pairs(ri) do
 		print(k..": "..tostring(v))
 	end
-	print("Output Gate: ", fluxgate.getSignalLowFlow())
-	print("Input Gate: ", inputFluxgate.getSignalLowFlow())
+	print("Output Gate: ", flowgate.getSignalLowFlow())
+	print("Input Gate: ", inputFlowgate.getSignalLowFlow())
 
 	if emergencyCharge == true then
 		reactor.chargeReactor()
 	end
 
 	if ri.status == "warming_up" then
-		inputFluxgate.setSignalLowFlow(900000)
+		inputFlowgate.setSignalLowFlow(900000)
 		emergencyCharge = false
 	end
 
@@ -139,11 +139,11 @@ function reactorControl()
 
 	if ri.status == "running" then
 		if autoInputGate == 1 then
-			fluxval = ri.fieldDrainRate / (1 - (targetStrength/100))
-			print("Target Gate: "..fluxval)
-			inputFluxgate.setSignalLowFlow(fluxval)
+			flowval = ri.fieldDrainRate / (1 - (targetStrength/100))
+			print("Target Gate: "..flowval)
+			inputFlowgate.setSignalLowFlow(flowval)
 		else
-			inputFluxgate.setSignalLowFlow(curInputGate)
+			inputFlowgate.setSignalLowFlow(curInputGate)
 		end
 	end
 
