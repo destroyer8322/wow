@@ -19,8 +19,8 @@ local curInputGate = 222000
 local mon, monitor, monX, monY
 
 local reactor
-local fluxgate
-local inputFluxgate
+local flowgate
+local inputFlowgate
 
 local ri
 
@@ -30,19 +30,19 @@ local emergencyCharge = false
 local emergencyTemp = false
 
 monitor = f.periphSearch("monitor")
-inputFluxgate = f.periphSearch("flux_gate")
-fluxgate = f.getPeripheral("flux_gate")
+inputFlowgate = f.periphSearch("flow_gate")
+flowgate = f.getPeripheral("flow_gate")
 reactor = f.getPeripheral("draconic_reactor")
 
 if monitor == nil then
 	error("No valid monitor was found")
 end
 
-if fluxgate == nil then
+if flowgate == nil then
 	error("No valid fluxgate was found")
 end
 
-if inputFluxgate == nil then
+if inputFlowgate == nil then
 	error("No input fluxgate was found")
 end
 
