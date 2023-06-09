@@ -226,7 +226,7 @@ function buttonControls()
 end
 
 function changeOutputValue(num, val)
-	local cFlow = fluxgate.getSignalLowFlow()
+	local cFlow = flowgate.getSignalLowFlow()
 	
 	if val == 1 then
 		cFlow = cFlow+num
